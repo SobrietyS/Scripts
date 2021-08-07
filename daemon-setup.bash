@@ -14,19 +14,16 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 echo -e "[INFO] Updating system..."
-apt update && apt full-upgrade
+apt update && apt full-upgrade &> /dev/null
 echo -e "[SUCCESS] System updated!"
 
 echo -e "[INFO] Adding Java PPA..."
-add-apt-repository ppa:linuxuprising/java
+add-apt-repository ppa:linuxuprising/java &> /dev/null
 echo -e "[SUCCESS] Java PPA added!"
 
 echo -e "[INFO] Installing required packages..."
-apt install -y apt-transport-https python-pip ansible rsync openjdk-16-jdk openjdk-11-jdk openjdk-8-jdk git zip unzip
+apt install -y apt-transport-https ansible rsync openjdk-16-jdk openjdk-11-jdk openjdk-8-jdk git zip unzip
 echo -e "[SUCCESS] Packages installed!"
-
-echo -e "[INFO] Displaying Java versions..."
-update-java-alternatives --list
 
 echo -e "[INFO] Downloading Multicraft latest version..."
 wget http://www.multicraft.org/download/linux64 -O multicraft.tar.gz
@@ -36,7 +33,7 @@ if [ ! -f ./multicraft.tar.gz ]; then
     exit 1;
 fi
 echo -e "[SUCCESS] Multicraft downloaded. Prepare to complete configuration!"
-tar xvzf multicraft.tar.gz
+tar xvzf multicraft.tar.gz &> /dev/null
 cd multicraft
 ./setup.sh
 
@@ -55,7 +52,6 @@ if [ ! -f /etc/systemd/system/multicraft.service ]; then
 fi
 echo -e "[SUCCESS] Systemd Multicraft service created and enabled!"
 
-clear
 echo -e "------------------------------------------------"
 echo -e "   Sphero Solutions Multicraft Daemon Script    "
 echo -e "              Created by Sobriety S             \n"
