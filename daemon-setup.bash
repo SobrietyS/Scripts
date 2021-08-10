@@ -21,7 +21,7 @@ add-apt-repository ppa:linuxuprising/java
 echo -e "[SUCCESS] Java PPA added!"
 
 echo -e "[INFO] Installing required packages..."
-apt install -y apt-transport-https ansible rsync openjdk-16-jdk openjdk-11-jdk openjdk-8-jdk git zip unzip
+apt install -y apt-transport-https python-pip ansible rsync openjdk-16-jdk openjdk-11-jdk openjdk-8-jdk git zip unzip
 echo -e "[SUCCESS] Packages installed!"
 
 echo -e "[INFO] Downloading Multicraft latest version..."
@@ -54,7 +54,7 @@ echo -e "[SUCCESS] Systemd Multicraft service created and enabled!"
 echo -e "[INFO] Removing premade jars and templates..."
 rm -rfv /home/minecraft/multicraft/jar/*
 rm -rfv /home/minecraft/multicraft/templates/*
-echo -e "[SUCCESS] Successfully removed!\n"
+echo -e "[SUCCESS] Successfully removed!"
 
 echo -e "------------------------------------------------"
 echo -e "   Sphero Solutions Multicraft Daemon Script    "
@@ -68,4 +68,5 @@ echo -e "- Edit /home/minecraft/multicraft/multicraft.conf, and configure daemon
 echo -e "- Remember to run /home/minecraft/multicraft/bin/multicraft -v restart after making changes!"
 echo -e "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 
+rm -r daemon-setup.bash
 exit
