@@ -21,7 +21,7 @@ add-apt-repository ppa:linuxuprising/java
 echo -e "[SUCCESS] Java PPA added!"
 
 echo -e "[INFO] Installing required packages..."
-apt install -y apt-transport-https python-pip ansible rsync openjdk-16-jdk openjdk-11-jdk openjdk-8-jdk git zip unzip
+apt install -y apt-transport-https python-pip rsync openjdk-16-jdk openjdk-11-jdk openjdk-8-jdk git zip unzip
 echo -e "[SUCCESS] Packages installed!"
 
 echo -e "[INFO] Downloading Multicraft latest version..."
@@ -68,5 +68,8 @@ echo -e "- Edit /home/minecraft/multicraft/multicraft.conf, and configure daemon
 echo -e "- Remember to run /home/minecraft/multicraft/bin/multicraft -v restart after making changes!"
 echo -e "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 
+echo -e "[INFO] Removing bash script..."
 rm -r daemon-setup.bash
+echo -e "[SUCCESS] Bash script removed!"
+
 exit
