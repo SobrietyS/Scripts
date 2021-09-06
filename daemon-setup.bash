@@ -12,6 +12,10 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
+echo -e "[INFO] Setting timezone to EST..."
+timedatectl set-timezone America/New_York
+echo -e "[SUCCESS] Timezone set!"
+
 echo -e "[INFO] Updating system..."
 apt update && apt full-upgrade &> /dev/null
 echo -e "[SUCCESS] System updated!"
