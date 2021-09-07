@@ -21,12 +21,16 @@ apt update && apt full-upgrade &> /dev/null
 echo -e "[SUCCESS] System updated!"
 
 echo -e "[INFO] Adding Java PPA..."
-add-apt-repository ppa:linuxuprising/java
+add-apt-repository -y ppa:linuxuprising/java &> /dev/null
 echo -e "[SUCCESS] Java PPA added!"
 
 echo -e "[INFO] Installing required packages..."
-apt install -y apt-transport-https python-pip rsync openjdk-16-jdk openjdk-11-jdk openjdk-8-jdk git zip unzip
+apt install -y apt-transport-https python-pip rsync openjdk-16-jdk openjdk-11-jdk openjdk-8-jdk git zip unzip &> /dev/null
 echo -e "[SUCCESS] Packages installed!"
+
+echo -e "[INFO] Adding Python PPA..."
+apt-get install -y software-properties-common && add-apt-repository -y ppa:deadsnakes/ppa && apt-get update && apt-get install -y python3.8 && update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1 &> /dev/null
+echo -e "[SUCCESS] Python PPA added!"
 
 echo -e "[INFO] Downloading Multicraft latest version..."
 wget --quiet http://www.multicraft.org/download/linux64 -O multicraft.tar.gz
